@@ -1,37 +1,31 @@
 ---
 // Component Imports
-import Counter from '../components/Counter';
+// import Counter from '../components/Counter';
+import Header from "../components/Header.astro";
+import Form from "../components/Form";
+import Postcard from "../components/Postcard";
 
-const someProps = {
-	count: 0,
-};
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import { Provider } from 'jotai';
 ---
 
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<style>
-			html,
-			body {
-				font-family: system-ui;
-				margin: 0;
-			}
-			body {
-				padding: 2rem;
-			}
-		</style>
+		<title>Lollipop Printer</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.css">
 	</head>
 	<body>
 		<main>
-			<Counter {...someProps} client:visible>
-				<h1>Hello, React!</h1>
-			</Counter>
+			<Provider>
+				<Header />
+				<div style={{ display: "flex", flexWrap: "wrap", gap: "1rem"}}>
+				<Form client:load />
+				<Postcard client:load />
+				</div>
+			</Provider>
 		</main>
 	</body>
 </html>
