@@ -7,4 +7,6 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	// Enable React to support React JSX components.
 	integrations: [react()],
+	site: "https://tkytel.github.io",
+	base: "lollipop-printer",
 });
